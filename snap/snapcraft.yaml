@@ -1,18 +1,18 @@
-name: iot-example-graphical-snap  # you probably want to 'snapcraft register <name>'
+name: drzn  # you probably want to 'snapcraft register <name>'
 version: git # just for humans, typically '1.2+git' or '1.3.2'
-summary: IoT example using Flutter # 79 char long summary
-description: IoT example using Flutter
+summary: DRZN app # 79 char long summary
+description: DRZN app using Flutter
 confinement: strict
 compression: lzo
 grade: stable
 base: core24
 
 apps:
-  iot-example-graphical-snap:
+  drzn:
     command-chain: &_command-chain
       - bin/gpu-2404-wrapper
       - bin/wayland-launch
-    command: &_command bin/flutterdemo
+    command: &_command bin/drzn_app_build
     plugs: &_plugs
       - opengl
       - wayland
@@ -75,9 +75,9 @@ layout:
     bind: $SNAP/etc/gtk-3.0
 
 parts:
-  flutterdemo:
+  drzn_app_build:
     plugin: nil
-    source: flutterdemo
+    source: drzn_app_build
     build-snaps:
       - flutter/latest/stable
     build-environment:
@@ -147,7 +147,7 @@ parts:
 
   gpu-2404:
     after:
-      - flutterdemo
+      - drzn_app_build
       - gsettings+pixbuf+immodules
       - setup
     source: https://github.com/canonical/gpu-snap.git
