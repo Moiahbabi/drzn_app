@@ -1,6 +1,6 @@
 {
-    "name": "drzn_app",
-    "short_name": "drzn_app",
+    "name": "drzn",
+    "short_name": "drzn",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

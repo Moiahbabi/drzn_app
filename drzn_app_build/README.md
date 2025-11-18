@@ -1,4 +1,4 @@
-# drzn_app
+# drzn
 
 A new Flutter project.
 
